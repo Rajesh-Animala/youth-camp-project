@@ -11,7 +11,7 @@ CREATE TABLE Participants (
     Gender ENUM('Male', 'Female', 'Other') NOT NULL,
     PersonalPhone VARCHAR(20) NOT NULL,
     INDEX (LastName, FirstName)  -- For faster name searches
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) 
 
 -- Create Camps Table
 CREATE TABLE Camps (
@@ -22,7 +22,7 @@ CREATE TABLE Camps (
     Price DECIMAL(10,2) NOT NULL,
     Capacity INT NOT NULL CHECK (Capacity > 0),
     CHECK (EndDate > StartDate)  -- Ensure valid date range
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+)
 
 -- Create Visit Records Table
 CREATE TABLE VisitRecords (
@@ -31,7 +31,7 @@ CREATE TABLE VisitRecords (
     CampID INT NOT NULL,
     VisitDate DATE NOT NULL DEFAULT (CURRENT_DATE),
     UNIQUE (ParticipantID, CampID, VisitDate)  -- Prevent duplicate visits
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) 
 
 
 SELECT * FROM camps;
